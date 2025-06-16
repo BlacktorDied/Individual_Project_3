@@ -168,7 +168,8 @@ export default function SCPs({ employees, facilities }: Props) {
                         .filter((employee) =>
                             filter ? employee.getPosition() == filter : true,
                         )
-                        .toSorted((a, b) => {
+                        .slice()
+                        .sort((a, b) => {
                             switch (sortBy) {
                                 case "id":
                                     return sortOrder == "asc"

@@ -10,7 +10,7 @@ export default async function handler(
     res: NextApiResponse<Data>,
 ) {
     const body = req.body;
-
+    
     if (typeof body === "string") {
         const [username, hashReceived] = body.split(":");
 
@@ -19,7 +19,7 @@ export default async function handler(
                 username: username,
             },
         });
-
+        
         if (user) {
             const hash = crypto
                 .createHash("sha256")

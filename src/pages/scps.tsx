@@ -11,6 +11,8 @@ import Close from "@/icons/close.svg";
 
 import SCP from "@/entities/SCP";
 import Facility from "@/entities/Facility";
+import { get } from "http";
+import { userAgent } from "next/server";
 
 //Get all SCPs
 type Props = {
@@ -158,7 +160,8 @@ export default function SCPs({ scps, facilities }: Props) {
                         .filter((scp) =>
                             filter ? scp.getObjectClass() === filter : true,
                         )
-                        .toSorted((a, b) => {
+                        .slice()
+                        .sort((a, b) => {
                             switch (sortBy) {
                                 case "id":
                                     return sortOrder === "asc"

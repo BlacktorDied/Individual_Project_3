@@ -6,7 +6,7 @@ export const useLoggedIn = () => {
     useEffect(() => {
         const authCookie = document.cookie
             .split(";")
-            .map((str) => str.split("="))
+            .map((str) => str.trim().split("="))
             .find(([name]) => name === "auth")?.[1];
 
         if (authCookie) {

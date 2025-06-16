@@ -157,7 +157,8 @@ export default function Facilities({ facilities }: Props) {
                         .filter((facility) =>
                             filter ? facility.getType() === filter : true,
                         )
-                        .toSorted((a, b) => {
+                        .slice()
+                        .sort((a, b) => {
                             switch (sortBy) {
                                 case "id":
                                     return sortOrder === "asc"
