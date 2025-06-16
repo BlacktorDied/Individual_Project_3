@@ -140,6 +140,63 @@ async function main() {
             facility_id: 43,
         },
     });
+
+    // Feedbacks
+        const feedback_1 = await prisma.feedback.upsert({
+        where: { feedback_id: 1 },
+        update: {},
+        create: {
+            feedback_id: 1,
+            name: "Alice Johnson",
+            email: "alice@example.com",
+            subject: "general",
+            message: "Love the site! Keep up the great work.",
+        },
+    });
+    const feedback_2 = await prisma.feedback.upsert({
+        where: { feedback_id: 2 },
+        update: {},
+        create: {
+            feedback_id: 2,
+            name: "Bob Smith",
+            email: "bob@example.com",
+            subject: "bug",
+            message: "The login form doesn’t work on Safari.",
+        },
+    });
+    const feedback_3 = await prisma.feedback.upsert({
+        where: { feedback_id: 3 },
+        update: {},
+        create: {
+            feedback_id: 3,
+            name: "Cynthia Lee",
+            email: "cynthia@example.com",
+            subject: "suggestion",
+            message: "Could you add dark mode support?",
+        },
+    });
+    const feedback_4 = await prisma.feedback.upsert({
+        where: { feedback_id: 4 },
+        update: {},
+        create: {
+            feedback_id: 4,
+            name: "David Kim",
+            email: "david@example.com",
+            subject: "general",
+            message: "Very informative, thanks for maintaining this project.",
+        },
+    });
+    const feedback_5 = await prisma.feedback.upsert({
+        where: { feedback_id: 5 },
+        update: {},
+        create: {
+            feedback_id: 5,
+            name: "Elena Ruiz",
+            email: "elena@example.com",
+            subject: "other",
+            message: "Would love to volunteer or contribute somehow!",
+        },
+    });
 }
 
 main()

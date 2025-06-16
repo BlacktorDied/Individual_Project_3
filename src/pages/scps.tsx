@@ -158,7 +158,8 @@ export default function SCPs({ scps, facilities }: Props) {
                         .filter((scp) =>
                             filter ? scp.getObjectClass() === filter : true,
                         )
-                        .toSorted((a, b) => {
+                        .slice()
+                        .sort((a, b) => {
                             switch (sortBy) {
                                 case "id":
                                     return sortOrder === "asc"

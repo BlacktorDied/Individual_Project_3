@@ -6,8 +6,10 @@ export const useLoggedIn = () => {
     useEffect(() => {
         const authCookie = document.cookie
             .split(";")
-            .map((str) => str.split("="))
+            .map((str) => str.trim().split("="))
             .find(([name]) => name === "auth")?.[1];
+
+        console.log("Auth cookie:", document.cookie.split(";").map((str) => str.split("=")));
 
         if (authCookie) {
             fetch("/api/auth/validate", {

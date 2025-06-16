@@ -61,16 +61,21 @@ export default function Header() {
                             Log in
                         </li>
                     ) : (
-                        <li
-                            className={styles.main__logOut}
-                            onClick={() => {
-                                document.cookie =
-                                    "auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                                location.reload();
-                            }}
-                        >
-                            Log out
-                        </li>
+                        <>
+                            <li>
+                                <Link href="/feedback">Feedback</Link>
+                            </li>
+                            <li
+                                className={styles.main__logOut}
+                                onClick={() => {
+                                    document.cookie =
+                                        "auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                                    location.reload();
+                                }}
+                            >
+                                Log out
+                            </li>
+                        </>
                     )}
                 </ul>
             </nav>
@@ -128,7 +133,9 @@ export default function Header() {
                             placeholder="Confirm password"
                         />
                         <div className={styles.form__options}>
-                            <div onClick={() => setIsSignUp(false)}>Log in</div>
+                            <button onClick={() => setIsSignUp(false)}>
+                                Log in
+                            </button>
                             <button>Sign up</button>
                         </div>
                     </form>
